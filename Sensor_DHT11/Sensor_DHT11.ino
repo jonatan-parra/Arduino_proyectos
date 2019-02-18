@@ -1,5 +1,3 @@
- 
-// Incluimos librería
 #include <DHT.h>
  
 // Definimos el pin digital donde se conecta el sensor
@@ -9,19 +7,22 @@
  
 // Inicializamos el sensor DHT11
 DHT dht(DHTPIN, DHTTYPE);
+
+
+// Pines a usar con Arduino Mega
+// Desde el sensor DHT11:
+// +   --> 5V
+// out --> 2
+// -   --> GND
+
  
 void setup() {
-  // Inicializamos comunicación serie
-  Serial.begin(9600);
- 
-  // Comenzamos el sensor DHT
-  dht.begin();
- 
+  Serial.begin(9600);  // Inicializamos comunicación serie
+  dht.begin(); // Comenzamos el sensor DHT
 }
  
 void loop() {
-    // Esperamos 1 segundos entre medidas
-  delay(1000);
+  delay(1000); // Esperamos 1 segundos entre medidas
  
   // Leemos la humedad relativa
   float h = dht.readHumidity();
